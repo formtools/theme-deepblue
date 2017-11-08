@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html dir="{$LANG.special_text_direction}">
 <head>
   <title>{$head_title}</title>
@@ -46,33 +46,32 @@
 
 		        <div id="left">
 		          <div id="left_nav_top">
-		            {if $SESSION.account.is_logged_in}
-					        {if $settings.release_type == "alpha"}
-					          <b>{$settings.program_version}-alpha-{$settings.release_date}</b>
-					        {elseif $settings.release_type == "beta"}
-					          <b>{$settings.program_version}-beta-{$settings.release_date}</b>
+		            {if $is_logged_in}
+					  {if $settings.release_type == "alpha"}
+					    <b>{$settings.program_version}-alpha-{$settings.release_date}</b>
+                      {elseif $settings.release_type == "beta"}
+					    <b>{$settings.program_version}-beta-{$settings.release_date}</b>
 		              {else}
 		                <b>{$settings.program_version}</b>
 		              {/if}
-		              {if $SESSION.account.account_type == "admin"}
-		      				  &nbsp;
-		                <a href="#" onclick="return ft.check_updates()" class="update_link">{$LANG.word_update}</a>
+		              {if $account.account_type == "admin"}
+                         &nbsp;<a href="#" onclick="return ft.check_updates()" class="update_link">{$LANG.word_update}</a>
 		              {/if}
 		      	  	{else}
 		      	  	  <div style="height: 20px"> </div>
 		      	    {/if}
 		          </div>
 
-							{ft_include file="menu.tpl"}
-		        </div>
+                  {ft_include file="menu.tpl"}
 
+		        </div>
 	        </td>
 	        <td valign="top">
 
-				      <div id="main_top"></div>
-				      <span style="position: absolute; right: 0px;"><img src="{$theme_url}/images/main_right_shadow.jpg" width="7" height="292" /></span>
+              <div id="main_top"></div>
+              <span style="position: absolute; right: 0px;"><img src="{$theme_url}/images/main_right_shadow.jpg" width="7" height="292" /></span>
 
-						  <div class="content_wrap">
+                  <div class="content_wrap">
 
-						    <div id="page_content">
+                    <div id="page_content">
 
