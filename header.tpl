@@ -34,8 +34,11 @@
 
 	<div id="header"><span
 	  style="float:right"><img src="{$theme_url}/images/header_right_shadow.jpg" width="7" height="71" /></span><span
-	  style="float:right"><img src="{$theme_url}/images/header_right.jpg" width="10" height="71" /></span>{if $settings.logo_link}<a
-	  href="{$settings.logo_link}">{/if}<img src="{$theme_url}/images/header_logo.jpg" width="200" height="71" border="0" />{if $settings.logo_link}</a>{/if}</div>
+	  style="float:right"><img src="{$theme_url}/images/header_right.jpg" width="10" height="71" /></span>
+    {if isset($settings.logo_link) && !empty($settings.logo_link)}<a href="{$settings.logo_link}">{/if}
+      <img src="{$theme_url}/images/header_logo.jpg" width="200" height="71" border="0" />
+    {if isset($settings.logo_link) && !empty($settings.logo_link)}</a>{/if}
+    </div>
 
 	  <div class="outer">
 	  <div class="inner">

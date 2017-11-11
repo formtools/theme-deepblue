@@ -35,9 +35,12 @@
 <div id="container" class="admin_container">
 
     <div id="header"><span
-                style="float:right"><img src="{$theme_url}/images/header_right_shadow.jpg" width="7" height="71" /></span><span
-                style="float:right"><img src="{$theme_url}/images/header_right.jpg" width="10" height="71" /></span>{if $settings.logo_link}<a
-                href="{$settings.logo_link}">{/if}<img src="{$theme_url}/images/header_logo.jpg" width="200" height="71" border="0" />{if $settings.logo_link}</a>{/if}</div>
+        style="float:right"><img src="{$theme_url}/images/header_right_shadow.jpg" width="7" height="71" /></span><span
+        style="float:right"><img src="{$theme_url}/images/header_right.jpg" width="10" height="71" /></span>
+    {if isset($settings.logo_link) && !empty($settings.logo_link)}<a href="{$settings.logo_link}">{/if}
+        <img src="{$theme_url}/images/header_logo.jpg" width="200" height="71" border="0" />
+        {if isset($settings.logo_link) && !empty($settings.logo_link)}</a>{/if}
+    </div>
 
     <div class="outer">
         <div class="inner">
@@ -47,7 +50,7 @@
                         <td width="200" valign="top">
                             <div id="left">
                                 <div id="left_nav_top">
-                                    {if $account.is_logged_in}
+                                    {if !$hide_nav_menu && $account.is_logged_in}
                                         {if $settings.release_type == "alpha"}
                                             <b>{$settings.program_version}-alpha-{$settings.release_date}</b>
                                         {elseif $settings.release_type == "beta"}
@@ -64,6 +67,7 @@
                                     {/if}
                                 </div>
 
+                                {if !$hide_nav_menu}
                                 <div class="nav_heading">
                                     {$LANG.phrase_module_nav}
                                 </div>
@@ -79,6 +83,7 @@
                                 <div id="main_nav">
                                     {ft_include file="menu.tpl"}
                                 </div>
+                                {/if}
                             </div>
 
                         </td>
