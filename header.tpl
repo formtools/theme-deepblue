@@ -49,7 +49,7 @@
 
 		        <div id="left">
 		          <div id="left_nav_top">
-		            {if $is_logged_in}
+		            {if $is_logged_in && isset($settings.program_version)}
 					  {if $settings.release_type == "alpha"}
 					    <b>{$settings.program_version}-alpha-{$settings.release_date}</b>
                       {elseif $settings.release_type == "beta"}
